@@ -13,9 +13,10 @@ class Token extends BaseAction
          */
         $process = app(Process::class, ['command' => $this->token()]);
 
-        $process->setWorkingDirectory($this->base_path)
+        dump($process->setWorkingDirectory($this->base_path)
                 ->setTimeout(60)
-                ->mustRun();
+                ->mustRun()
+                ->getOutput());
     }
 
     /**
@@ -25,9 +26,7 @@ class Token extends BaseAction
     {
         return [
             'composer',
-            'config',
-            '-g',
-            '--list',
+            'diagnose',
         ];
     }
 }

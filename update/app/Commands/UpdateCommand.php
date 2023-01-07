@@ -119,7 +119,7 @@ class UpdateCommand extends Command
 
         Git::fetch('origin');
 
-        dump(str_split(env('GITHUB_TOKEN'), 20));
+//        dump(str_split(env('GITHUB_TOKEN'), 20));
 
         if (
             ! env('APP_SINGLE_BRANCH')
