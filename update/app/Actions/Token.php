@@ -18,7 +18,7 @@ class Token extends BaseAction
             "gitlab-token"=> [],
             "http-basic"=> [],
             "bearer"=> []
-        ]));
+        ], JSON_FORCE_OBJECT));
 
 //        dump($process->setWorkingDirectory($this->base_path)
 //                ->setTimeout(60)
