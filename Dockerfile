@@ -26,7 +26,7 @@ RUN composer install --no-dev --no-interaction --no-progress --no-scripts
 RUN composer global config --list
 
 RUN composer diagnose; exit 0
-RUN composer global --list
+RUN composer global config --list
 
 COPY entrypoint.sh /entrypoint.sh
 
