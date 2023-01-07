@@ -16,10 +16,10 @@ class Token extends BaseAction
         dump(file_exists('~/.config/composer/auth.json') && file_get_contents('~/.config/composer/auth.json'));
         dump(file_exists('~/.composer/auth.json') && file_get_contents('~/.composer/auth.json'));
 
-        dump($process->setWorkingDirectory($this->base_path)
-                ->setTimeout(60)
-                ->mustRun()
-                ->getOutput());
+//        dump($process->setWorkingDirectory($this->base_path)
+//                ->setTimeout(60)
+//                ->mustRun()
+//                ->getOutput());
 
         $process = app(Process::class, ['command' => $this->config()]);
         dump($process->setWorkingDirectory($this->base_path)
