@@ -25,7 +25,8 @@ COPY ./update /root
 RUN composer install --no-dev --no-interaction --no-progress --no-scripts
 RUN composer global config --list
 
-RUN rm /usr/bin/composer
+RUN composer diagnose; exit 0
+RUN composer global --list
 
 COPY entrypoint.sh /entrypoint.sh
 
