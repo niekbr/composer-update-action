@@ -23,7 +23,6 @@ WORKDIR /root
 COPY ./update /root
 
 RUN composer install --no-dev --no-interaction --no-progress --no-scripts
-RUN composer diagnose
 
 COPY entrypoint.sh /entrypoint.sh
 
