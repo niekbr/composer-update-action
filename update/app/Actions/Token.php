@@ -10,15 +10,8 @@ class Token extends BaseAction
     {
         dump(get_current_user());
         dump(scandir('/github/home/.composer'));
-        file_put_contents("/root/.composer/auth.json", json_encode([
-            "bitbucket-oauth"=> [],
-            "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
-            "gitlab-oauth"=> [],
-            "gitlab-token"=> [],
-            "http-basic"=> [],
-            "bearer"=> []
-        ]));
-        file_put_contents("/root/.config/composer/auth.json", json_encode([
+        dump(file_get_contents('/github/home/.composer/auth.json'));
+        file_put_contents("/github/home/.composer/auth.json", json_encode([
             "bitbucket-oauth"=> [],
             "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
             "gitlab-oauth"=> [],
