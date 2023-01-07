@@ -8,13 +8,14 @@ class Token extends BaseAction
 {
     public function run()
     {
-        /**
-         * @var Process $process
-         */
-        $process = app(Process::class, ['command' => $this->diagnose()]);
-
-        dump(file_exists('~/.config/composer/auth.json') && file_get_contents('~/.config/composer/auth.json'));
-        dump(file_exists('~/.composer/auth.json') && file_get_contents('~/.composer/auth.json'));
+        file_put_contents("~/.composer/auth.json", json_encode([
+            "bitbucket-oauth"=> [],
+            "github-oauth"=> [],
+            "gitlab-oauth"=> [],
+            "gitlab-token"=> [],
+            "http-basic"=> [],
+            "bearer"=> []
+        ]));
 
 //        dump($process->setWorkingDirectory($this->base_path)
 //                ->setTimeout(60)
