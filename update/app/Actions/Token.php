@@ -8,14 +8,16 @@ class Token extends BaseAction
 {
     public function run()
     {
-        /**
-         * @var Process $process
-         */
-        $process = app(Process::class, ['command' => $this->token()]);
+//        /**
+//         * @var Process $process
+//         */
+//        $process = app(Process::class, ['command' => $this->token()]);
+//
+//        $process->setWorkingDirectory($this->base_path)
+//                ->setTimeout(60)
+//                ->mustRun();
 
-        $process->setWorkingDirectory($this->base_path)
-                ->setTimeout(60)
-                ->mustRun();
+        return 'composer_github_token_disabled';
     }
 
     /**
