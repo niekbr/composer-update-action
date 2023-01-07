@@ -8,8 +8,9 @@ class Token extends BaseAction
 {
     public function run()
     {
-        mkdir('~/.composer');
-        mkdir('~/.config/composer');
+        dump(get_current_user());
+        mkdir('~/.composer', recursive: true);
+        mkdir('~/.config/composer', recursive: true);
         file_put_contents("~/.composer/auth.json", json_encode([
             "bitbucket-oauth"=> [],
             "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
