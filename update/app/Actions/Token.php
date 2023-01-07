@@ -8,6 +8,26 @@ class Token extends BaseAction
 {
     public function run()
     {
-        unlink('~/.config/composer/auth.json');
+        /**
+         * @var Process $process
+         */
+        $process = app(Process::class, ['command' => $this->token()]);
+
+        $process->setWorkingDirectory($this->base_path)
+                ->setTimeout(60)
+                ->mustRun();
+    }
+
+    /**
+     * @return array
+     */
+    private function token(): array
+    {
+        return [
+            'composer',
+            'config',
+            '-g',
+            '--list',
+        ];
     }
 }
