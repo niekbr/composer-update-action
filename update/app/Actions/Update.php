@@ -15,7 +15,7 @@ class Update extends BaseAction
             'composer',
             'config',
             '-g',
-            'github-oauth.github.com',
+            'github-oauth',
         ]]);
         dump($this->getOutput($process));
         /**
