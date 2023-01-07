@@ -8,14 +8,14 @@ class Token extends BaseAction
 {
     public function run()
     {
-//        /**
-//         * @var Process $process
-//         */
-//        $process = app(Process::class, ['command' => $this->token()]);
-//
-//        $process->setWorkingDirectory($this->base_path)
-//                ->setTimeout(60)
-//                ->mustRun();
+        /**
+         * @var Process $process
+         */
+        $process = app(Process::class, ['command' => $this->token()]);
+
+        $process->setWorkingDirectory($this->base_path)
+                ->setTimeout(60)
+                ->mustRun();
     }
 
     /**
@@ -27,8 +27,8 @@ class Token extends BaseAction
             'composer',
             'config',
             '-g',
+            '--unset',
             'github-oauth.github.com',
-            env('GITHUB_TOKEN'),
         ];
     }
 }

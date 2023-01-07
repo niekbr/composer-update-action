@@ -11,16 +11,6 @@ class Update extends BaseAction
         /**
          * @var Process $process
          */
-        $process = app(Process::class, ['command' => [
-            'composer',
-            'config',
-            '-g',
-            'github-oauth',
-        ]]);
-        dump($this->getOutput($process));
-        /**
-         * @var Process $process
-         */
         $process = app(Process::class, ['command' => $this->update()]);
 
         return $this->getOutput($process);
