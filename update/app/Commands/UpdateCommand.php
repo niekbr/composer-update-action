@@ -119,6 +119,8 @@ class UpdateCommand extends Command
 
         Git::fetch('origin');
 
+        dump($_ENV);
+
         if (
             ! env('APP_SINGLE_BRANCH')
             || ! in_array('remotes/origin/'.$this->new_branch, Git::getBranches() ?? [])
