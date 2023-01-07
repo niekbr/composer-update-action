@@ -16,8 +16,6 @@ class Token extends BaseAction
 //        $process->setWorkingDirectory($this->base_path)
 //                ->setTimeout(60)
 //                ->mustRun();
-
-        return 'composer_github_token_disabled';
     }
 
     /**
