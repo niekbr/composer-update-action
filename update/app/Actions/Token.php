@@ -12,6 +12,7 @@ class Token extends BaseAction
 
         dump(scandir('/github/home'));
         dump(scandir('/github/home/.composer'));
+        dump($_ENV['HOME']);
 
         file_put_contents("/github/home/.composer/auth.json", json_encode([
             "bitbucket-oauth"=> [],
