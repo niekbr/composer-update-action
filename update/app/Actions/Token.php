@@ -6,15 +6,11 @@ class Token extends BaseAction
 {
     public function run()
     {
-        if (! file_exists('/github/home/.composer')) {
-            mkdir('/github/home/.composer');
+        if (! file_exists(env('HOME').'/.composer')) {
+            mkdir(env('HOME').'/.composer');
         }
 
-        dump(scandir('/github/home'));
-        dump(scandir('/github/home/.composer'));
-        dump($_ENV['HOME']);
-
-        file_put_contents("/github/home/.composer/auth.json", json_encode([
+        file_put_contents(env('HOME')."/.composer/auth.json", json_encode([
             "bitbucket-oauth"=> [],
             "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
             "gitlab-oauth"=> [],
