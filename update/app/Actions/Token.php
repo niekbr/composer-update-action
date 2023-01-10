@@ -6,6 +6,12 @@ class Token extends BaseAction
 {
     public function run()
     {
+        exec('whoami', $output);
+        dump($output);
+
+        exec('composer config global --list', $output);
+        dump($output);
+
         if (! file_exists(env('HOME').'/.composer')) {
             mkdir(env('HOME').'/.composer');
         }
