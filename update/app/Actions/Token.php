@@ -6,11 +6,9 @@ class Token extends BaseAction
 {
     public function run()
     {
-        exec('whoami', $output);
-        dump($output);
-
-        exec('composer config global --list', $output);
-        dump($output);
+        $this->execDump('whoami');
+        $this->execDump('composer diagnose');
+        $this->execDump('composer config global --list');
 
         if (! file_exists(env('HOME').'/.composer')) {
             mkdir(env('HOME').'/.composer');
@@ -24,5 +22,11 @@ class Token extends BaseAction
             "http-basic"=> [],
             "bearer"=> []
         ], JSON_FORCE_OBJECT));
+    }
+
+    protected function execDump($command)
+    {
+        exec($command, $output);
+        dump($output);
     }
 }
