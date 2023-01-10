@@ -23,7 +23,8 @@ WORKDIR /root
 COPY ./update /root
 
 RUN composer install --no-dev --no-interaction --no-progress --no-scripts
-
+RUN composer diagnose
+RUN ls /github/home -al
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
