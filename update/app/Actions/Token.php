@@ -12,6 +12,7 @@ class Token extends BaseAction
         dump($_ENV);
         dump("token:");
         dump(env('GITHUB_TOKEN'));
+        dump(strlen(env('GITHUB_TOKEN')));
 
 //        if (! file_exists(env('COMPOSER_HOME'))) {
 //            mkdir(env('COMPOSER_HOME'));
