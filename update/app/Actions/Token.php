@@ -9,6 +9,8 @@ class Token extends BaseAction
         $this->execDump('ls -al /github/home/.composer');
         $this->execDump('cat /github/home/.composer/auth.json');
 
+        dump($_ENV);
+        dump("token:");
         dump(env('GITHUB_TOKEN'));
 
 //        if (! file_exists(env('COMPOSER_HOME'))) {
