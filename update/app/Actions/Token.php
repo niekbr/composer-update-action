@@ -6,8 +6,7 @@ class Token extends BaseAction
 {
     public function run()
     {
-        dump(env('HOME')."/.composer/auth.json");
-        dump(env('COMPOSER_HOME'));
+        $this->execDump('export COMPOSER_HOME="$HOME/.config/composer"');
         $this->execDump('whoami');
         $this->execDump('composer diagnose');
         $this->execDump('composer global config bin-dir --absolute');
