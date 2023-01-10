@@ -7,17 +7,14 @@ class Token extends BaseAction
     public function run()
     {
         $this->execDump('export COMPOSER_HOME="$HOME/.composer"');
-        $this->execDump('whoami');
-        $this->execDump('composer diagnose');
-        $this->execDump('composer global config bin-dir --absolute');
-        $this->execDump('composer config --global --unset github-oauth.github.com');
-        $this->execDump('composer config global --list');
+        $this->execDump('ls -al /github/home/.composer');
+        $this->execDump('ls -al /github/home/.config/composer');
 
-        if (! file_exists(env('HOME').'/.composer')) {
-            mkdir(env('HOME').'/.composer');
+        if (! file_exists(env('COMPOSER_HOME'))) {
+            mkdir(env('COMPOSER_HOME'));
         }
 
-        file_put_contents(env('HOME')."/.composer/auth.json", json_encode([
+        file_put_contents(env('COMPOSER_HOME')."/auth.json", json_encode([
             "bitbucket-oauth"=> [],
             "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
             "gitlab-oauth"=> [],
