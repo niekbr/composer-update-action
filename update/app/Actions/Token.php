@@ -8,6 +8,8 @@ class Token extends BaseAction
     {
         $this->execDump('whoami');
         $this->execDump('composer diagnose');
+        $this->execDump('composer global config bin-dir --absolute');
+        $this->execDump('composer config --global --unset github-oauth.github.com');
         $this->execDump('composer config global --list');
 
         if (! file_exists(env('HOME').'/.composer')) {
