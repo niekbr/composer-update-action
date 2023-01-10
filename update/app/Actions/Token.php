@@ -15,7 +15,7 @@ class Token extends BaseAction
 //            mkdir(env('COMPOSER_HOME'));
 //        }
 //
-        file_put_contents('/github/home/.composer/auth.json', json_encode([
+        $result = file_put_contents('/github/home/.composer/auth.json', json_encode([
             "bitbucket-oauth"=> [],
             "github-oauth"=> ['github.com' => env('GITHUB_TOKEN')],
             "gitlab-oauth"=> [],
@@ -23,6 +23,8 @@ class Token extends BaseAction
             "http-basic"=> [],
             "bearer"=> []
         ], JSON_FORCE_OBJECT));
+
+        dump($result);
 
         $this->execDump('cat /github/home/.composer/auth.json');
     }
