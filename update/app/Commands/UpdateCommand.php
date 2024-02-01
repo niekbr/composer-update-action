@@ -12,6 +12,7 @@ use GrahamCampbell\GitHub\Facades\GitHub;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use LaravelZero\Framework\Commands\Command;
+use Symfony\Component\Process\Process;
 
 class UpdateCommand extends Command
 {
@@ -145,6 +146,10 @@ class UpdateCommand extends Command
                 '--quiet',
             ]);
         }
+
+        $version = (new Process(['composer', '--version']))->getOutput();
+        $this->info($version);
+        $this->info('[TOKEN]'.$token);
 
         $this->token();
     }
